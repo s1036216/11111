@@ -1,6 +1,6 @@
 package com.hanbit.oop.sevice;
 import java.util.Scanner;
-public class BmiService {
+public class calcService {
 	public String execute(double height,double weight){
 	     
 	      
@@ -18,4 +18,23 @@ public class BmiService {
 	            }
 return result;	            
 }
+	public String calcPlus(String a,String b){
+		
+	return String.valueOf(Integer.parseInt(a)+Integer.parseInt(b));
+	}
+	public String calcMinus(String a,String b){
+		String result="";
+		return result;
+	
+	}
+	public String calcDivd(String a,String b){
+		String result="";
+		return result;
+	}	
+	public String calcMultply(String a,String b){
+		String result="";
+		return result;
+	}
+	
 }
+	
