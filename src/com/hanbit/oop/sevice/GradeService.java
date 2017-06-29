@@ -91,9 +91,7 @@ public class GradeService {
 	}
 	
 	public String toString(){ //결과만
-	return"===================\n"+
-		  "이름 전공   학점 평가   \n"+
-		  name+"\t"+
-	      
+	return grade+"\t"+re;
+		        
 }
 	}

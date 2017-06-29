@@ -33,7 +33,7 @@ public class Controller {
 			       s2.setHeight(we);
 			       s2.setB();
 			       s2.setBmi();
-			        System.out.println(s2.getBmi());
+			       System.out.println(s2.getBmi());
 			      		      
 			       
 				break; //스위치 밖으로 빠지고
