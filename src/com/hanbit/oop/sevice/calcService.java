@@ -19,21 +19,24 @@ public class calcService {
 return result;	            
 }
 	public String calcPlus(String a,String b){
-		
-	return String.valueOf(Integer.parseInt(a)+Integer.parseInt(b));
+		/* String result="";
+          int num1=Integer.parseInt(a);
+          int num2=Integer.parseInt(b);
+          result=String.valueOf(num1+num2);
+          return result;
+		*/			
+		return String.valueOf(Integer.parseInt(a)+Integer.parseInt(b));
 	}
 	public String calcMinus(String a,String b){
-		String result="";
-		return result;
 	
+		return String.valueOf(Integer.parseInt(a)+Integer.parseInt(b));	
 	}
 	public String calcDivd(String a,String b){
-		String result="";
-		return result;
+		return String.valueOf(Integer.parseInt(a)+Integer.parseInt(b));
 	}	
 	public String calcMultply(String a,String b){
-		String result="";
-		return result;
+		
+		return String.valueOf(Integer.parseInt(a)*Integer.parseInt(b));
 	}
 	
 }

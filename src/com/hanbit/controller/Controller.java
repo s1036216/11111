@@ -2,33 +2,40 @@ package com.hanbit.controller;
 import java.util.Scanner;
 
 import com.hanbit.oop.sevice.calcService;
+import com.hanbit.oop.sevice.BMIsevisce;
 import com.hanbit.oop.sevice.ClockService;
 import com.hanbit.oop.sevice.GradeS;
+import com.hanbit.oop.sevice.GradeService;
 import com.hanbit.oop.sevice.LeapService;
 import com.hanbit.oop.sevice.TaxService;
 public class Controller {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		calcService s2 = new calcService();
+		BMIsevisce s2 = new BMIsevisce();
 		TaxService s3 = new TaxService();
 		LeapService s4 = new LeapService();
 		ClockService s5 = new ClockService();
 		GradeS s6 =new GradeS();
+		GradeService g= new GradeService();
 		
 		while (true) {
-			System.out.println("0.STOP 1.BMI 2.TAX 3.Leap 4.Clock 5.Grade 6.Calc ");
+			System.out.println("0.STOP 1.BMI 2.TAX 3.Leap 4.Clock 5.Grade 6.CalcPlus 7.CalcMinus ");
 			switch (s.next()) {
 			case "0":
 				System.out.println("종료");
 				return; //메서드 밖으로빠진다 //값이없이 끝 
  			case "1": 
 				   System.out.print("input your height: \n");
-			         double height = s.nextDouble() /100;
-			         System.out.print("input your weight: \n");
-			         double weight = s.nextDouble();
-			         System.out.print(weight + "cm");
-			         String result=s2.execute(height,weight);
-			         System.out.print("당신은 "+result+" 입니다\n");
+			       double he = s.nextDouble() /100;
+			       s2.setHeight(he);
+			       System.out.print("input your weight: \n");
+			       double we = s.nextDouble();
+			       s2.setHeight(we);
+			       s2.setB();
+			       s2.setBmi();
+			        System.out.println(s2.getBmi());
+			      		      
+			       
 				break; //스위치 밖으로 빠지고
  			case "2":
  					System.out.print("세금출력프로그램\n");
@@ -72,16 +79,34 @@ public class Controller {
 				//System.out.print(name+" |  "+total+"  |  "+avg+"  |  "+re+"\n");
 				System.out.print(String.format("%s  %s  %s  %s \n",arr5[0],arr5[1],arr5[2],arr5[3]));
 				System.out.print("***************************\n");
-			case "6":	
+			/*case "6":	
 				System.out.print("Enter Interger\n");
-				int num1=s.nextInt();
+				String num1=s.next();
 				System.out.print("Enter Interger\n");
-				int num2=s.nextInt();
-				String result6=s2.execute(num1,num2);
-				System.out.print(result6);
-				 
-				
-			
+				String num2=s.next();
+				String resultpuls=s2.calcPlus(num1,num2);
+				System.out.println(resultpuls); 
+				*/
+			case "7":	 
+				System.out.print("국어점수는?\n");
+			    int kor1=s.nextInt();
+			    g.setKor(kor1);
+			    
+			    System.out.print("영어점수는?\n");
+			    int eng1=s.nextInt();
+			    g.setEng(eng1);
+			    
+			    System.out.print("수학점수는?\n");
+			    int math1=s.nextInt();
+			    g.setMath(math1);
+			    
+			/*    g.setTotal(); 
+			    g.setAvg();
+			    */
+			    g.setGrade();
+			    
+				 	
+			    System.out.println(g.getGrade());
 			}
 			
 		}
