@@ -1,4 +1,4 @@
-package com.hanbit.oop.sevice;
+package com.hanbit.oop.serviceImpl;
 
 public class TaxService {
 	public double execute2(int salary){

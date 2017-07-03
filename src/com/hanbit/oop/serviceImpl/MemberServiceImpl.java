@@ -1,14 +1,15 @@
-package com.hanbit.oop.sevice;
+package com.hanbit.oop.serviceImpl;
 
 import com.hanbit.oop.domain.MemberBean;
+import com.hanbit.oop.service.MemberService;
 
-public class MemberService {
+public class MemberServiceImpl implements MemberService {
 	MemberBean session;
 
-	public MemberService() { // 임시저장공간
+	public MemberServiceImpl() { // 임시저장공간
 		session = new MemberBean();
 	}
-
+	@Override
 	public String getGender(MemberBean member) {
 		String gender = "";
 		switch (member.getSsn().charAt(6)) {
@@ -50,8 +51,8 @@ public class MemberService {
 			gender = "잘못입력했습니다";
 		}
 		return gender;
-	}
-
+		}
+	@Override
 	public String getAge(MemberBean member) {
 		int age = 0;
 		int year = Integer.parseInt(member.getSsn().substring(0, 2));
@@ -59,26 +60,16 @@ public class MemberService {
 		return String.valueOf(age);
 	}
 
+	@Override
 	public String join(MemberBean member) {
-
-		/*
-		 * System.out.println("회원가입시 사용한 ID"+member.getId());
-		 * System.out.println("회원가입시 사용한 비번"+member.getpass());
-		 * System.out.println("회원가입시 사용한 이름"+member.getName());
-		 * System.out.println("회원가입시 사용한 SSN:"+member.getSsn());
-		 * 
-		 */ // session 에다가 회원가입시 입력한 정보 저장하는 소스
 		session=member;
 		return "환영합니다" + session.getName();
-
 	}
 
+	@Override
 	public String Login(MemberBean member) {
-			return (session.getId().equals(member.getId())&&session.getpass().equals(member.getpass()))?
+		return (session.getId().equals(member.getId())&&session.getpass().equals(member.getpass()))?
 				"성공":"실패..";
 	}
-	
-	
-	}
 
-
+}

@@ -1,21 +1,21 @@
-package com.hanbit.oop.sevice;
+package com.hanbit.oop.serviceImpl;
 
 import com.hanbit.oop.domain.Gradebean;
+import com.hanbit.oop.service.GradeService;
 
-public class GradeService {
+public class GradeServiceImpl implements GradeService{
 
-	
-		
+	@Override
 	public int getTotal(Gradebean gbean) {
-		return gbean.getKor() + gbean.getEng() + gbean.getMath();
+		return gbean.getKor() + gbean.getEng() + gbean.getMath();	
 	}
 
-	
-	
+	@Override
 	public int setAvg(int total) {
 		return total / 3;
 	}
 
+	@Override
 	public String Grade(int avg) {
 		String grade="";
 		switch (avg / 10) {
@@ -48,13 +48,6 @@ public class GradeService {
 
 	return grade;
 	}
-}
 
 	
-	
-/*	
-	public String toString(){ //결과만
-	return name2+"님의전공은"+major+"\t"+grade+"\t"+re;
-		        
 }
-	}*/

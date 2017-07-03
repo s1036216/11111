@@ -5,7 +5,7 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 import com.hanbit.oop.domain.Gradebean;
-import com.hanbit.oop.sevice.GradeService;
+import com.hanbit.oop.serviceImpl.GradeService;
 
 import javax.swing.*;
 
@@ -17,7 +17,7 @@ public class GradeController {
 		while (true) {
 			switch (JOptionPane.showInputDialog("0.STOP,1.학점관리")) {
 			case "0":
-				System.out.println("종료");
+				JOptionPane.showMessageDialog(null,"종료");
 				return; // 메서드 밖으로빠진다 //값이없이 끝
 
 			case "1":
