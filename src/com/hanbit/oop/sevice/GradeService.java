@@ -1,66 +1,60 @@
 package com.hanbit.oop.sevice;
 
+import com.hanbit.oop.domain.Gradebean;
+
 public class GradeService {
 
-	private int kor, eng, math, total, avg;
-	private String grade, re, name2, major;
-
+	
 		
-	public void getTotal() {
-		this.total = kor + eng + math;
+	public int getTotal(Gradebean gbean) {
+		return gbean.getKor() + gbean.getEng() + gbean.getMath();
 	}
 
-	public int getTotal() {
-		return total;
+	
+	
+	public int setAvg(int total) {
+		return total / 3;
 	}
 
-	public void setAvg() {
-		this.avg = total / 3;
-	}
-
-	public void Grade() {
-		setTotal();  //setgrade안에들어옴댐
-		setAvg();    //
+	public String Grade(int avg) {
+		String grade="";
 		switch (avg / 10) {
 		case 10:
 		case 9:
-			this.grade = "A";
-			this.re = "장학금 대상입니다";
+			grade = "A";
+		
 			break;
 		case 8:
-			this.grade = "B";
-			this.re = "3학점 이수";
+			grade = "B";
+		
 			break;
 		case 7:
-			this.grade = "C";
-			this.re = "2학점 이수";
+			grade = "C";
+		
 			break;
 		case 6:
-			this.grade = "D";
-			this.re = "재수강";
+			grade = "D";
+		
 			break;
 		case 5:
-			this.grade = "e";
-			this.re = "학사경고";
+			grade = "e";
+		
 			break;
 		default:
-			this.grade = "f";
-			this.re = "학사경고";
+			grade = "f";
+		
 			break;
 		}
 
+	return grade;
 	}
-	
-	public String getGrade() {
-		return grade + re;
-	}
-
+}
 
 	
 	
-	
+/*	
 	public String toString(){ //결과만
 	return name2+"님의전공은"+major+"\t"+grade+"\t"+re;
 		        
 }
-	}
+	}*/
