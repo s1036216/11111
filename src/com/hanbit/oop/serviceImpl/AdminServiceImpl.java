@@ -25,8 +25,10 @@ public class AdminServiceImpl implements AdminService{
 	}
 	@Override
 	public void addMember(MemberBean bean) {
-		member[i]=bean;
-		i++;
+		member[i]=bean;//i번째 방에 값읋넣은후에  
+		i++;		// 생성자에서 방을 이미 만들어주고 배열로 가지고 와서 , i번째 가지고 와서  
+
+		
 			
 	}
 
