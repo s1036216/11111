@@ -1,46 +1,37 @@
 package com.hanbit.oop.domain;
-import com.hanbit.oop.domain.MemberBean;
 
 public class MemberBean {
-	private String ssn, id, pass, name ;
-
-		
-	public void setId(String id) {
+	//DB에 저장되는 값만 정의해야 함
+	private String id, pw, ssn, name;
+	
+	public void setId(String id){
 		this.id = id;
 	}
-
-	public String getId() {
+	public String getId(){
 		return id;
 	}
-
-	public void setName(String name) {
+	public void setPw(String pw){
+		this.pw = pw;
+	}
+	public String getPw(){
+		return pw;
+	}
+	public void setSSN(String ssn){
+		this.ssn = ssn;
+	}
+	public String getSSN(){
+		return ssn;
+	}
+	public void setName(String name){
 		this.name = name;
 	}
-
-	public String getName() {
+	public String getName(){
 		return name;
 	}
 
-	public void setpass(String pass) {
-		this.pass = pass;
-	}
-
-	public String getpass() {
-		return pass;
-	}
-
-	public void setSsn(String ssn) {
-		this.ssn = ssn;
-	}
-
-	public String getSsn() {
-
-		return ssn;
-	}
-
-	@Override
-	public String toString() {
-		return "회원 [주민번호=" + ssn + ", id=" + id + ", pass=" + pass + ", name=" + name + "]";
+	public String toString(){
+		return String.format("%s %s %s %s", id, pw, name, ssn);
+		//return "Welcome "+id;
 	}
 	
 }

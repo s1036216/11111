@@ -1,120 +1,88 @@
 package com.hanbit.oop.serviceImpl;
 
-
 import com.hanbit.oop.domain.MemberBean;
 import com.hanbit.oop.service.AdminService;
 
+public class AdminServiceImpl implements AdminService{
 
-
-
-public class AdminServiceImpl implements AdminService {
-
-	int i = 0;
 	int count;
-	MemberBean member = null;
+	MemberBean member;
 	MemberBean[] list;
-
-	// 생성자처리가 이문제핵심
-	public AdminServiceImpl(int limit) {
+	
+	public AdminServiceImpl(int limit){
 		count = 0;
-		member = new MemberBean();
-		list = new MemberBean[limit]; // 회원수 받은만큼 배열수 방만듬
-
+		//member = new MemberBean();
+		list = new MemberBean[limit];
 	}
-
+	
 	@Override
-	public void addMember(MemberBean bean) {
-		list[count] = bean;// i번째 방에 값읋넣은후에
-		for (int i = 0; i < (count + 1); i++) {
-			// System.out.println(list[i].toString());
-		}
-		count++; // 생성자에서 방을 이미 만들어주고 배열로 가지고 와서 , i번째 가지고 와서
+	public void addMember(MemberBean member) {		
+		list[count] = member;
+		/*
+		for(int i=0; i<(count+1);i++){
+			System.out.println(list[i].toString());
+		}*/
+		count++;
 	}
 
 	@Override
 	public MemberBean[] getMembers() {
 		return list;
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public int countMembers() {
-		// member.toString();
 		return count;
 	}
 
 	@Override
-	public MemberBean findById(String id) {
-		// member = new MemberBean();
-		for (i = 0; i < list.length; i++) {
-			if (id.equals(list[i].getId())) {
+	public MemberBean findByID(String id) {
+		for(int i=0; i<count; i++){
+			if(id.equals(list[i].getId())){
 				member = list[i];
 				break;
-				// System.out.println(list[i].toString());
 			}
 		}
-		// 조회하1려는 아이디값을 입력
-		// TODO Auto-generated method stub
 		return member;
 	}
 
-	 @Override
-     public MemberBean[] findByName(String name) {
-          int a = 0;
-           for(int i=0; i<list.length; i++){
-              if(name.equals(list[i].getName())){
-                 a++;
-              }
-           }
-           MemberBean[] nameList = new MemberBean[a];
-           int j=0;
-           for(int i=0; i<list.length; i++){
-             
-              if(name.equals(list[i].getName())){
-                 nameList[j] = list[i];
-                 j++;
-                 if(a==j){
-                    break;   
-                    }
-              }
-             
-           }
-           return nameList;
-     }
-		
-	/*	int a = 0;
-	      for(int i=0; i<list.length; i++){
-	         if(name.equals(list[i].getName())){
-	            a++;
-	         }
-	      }
-	      MemberBean[] nameList = new MemberBean[a];
-	      int j=0;
-	      for(int i=0; i<list.length; i++){
-	         if(name.equals(list[i].getName())){
-	            nameList[j] = list[i];
+	@Override
+	public MemberBean[] findByName(String name) {
+		int a = 0;	//결과 배열의 크기
+		for(int i=0; i<list.length; i++){
+			if(name.equals(list[i].getName())){
+				a++;
+			}
+		}
+	    
+		int j=0;	//결과 배열 index
+		MemberBean[] nameRes = new MemberBean[a];
+	    for(int i=0; i<list.length; i++){
+	        if(name.equals(list[i].getName())){
+	        	nameRes[j] = list[i];
 	            j++;
-	         }
-	      }
-	      return nameList; */
-	
-	
-	 
+	        }
+	        if(a==j){
+            	break;
+            }
+	    }
+	    return nameRes;
+	}
 
 	@Override
-	public void updatePass(MemberBean bean) {
+	public void upadtePw(MemberBean bean) {
+		//System.out.println("bean1: "+bean.toString());
+		//System.out.println("member1: "+member.toString());
 		
-	
-		findById(bean.getId());
-		if(bean.getId().equals(member.getId())){
-			member.setpass(bean.getpass());
+		findByID(bean.getId());
+		System.out.println("bean2: "+bean.toString());
+		System.out.println("member2: "+member.toString());
+		
+		if(member.getId().equals(bean.getId())){
+			member.setPw(bean.getPw());
 		}
 		
-				
-		// TODO Auto-generated method stub
-		
+		System.out.println("bean3: "+bean.toString());
+		System.out.println("member3: "+member.toString());
 	}
 }
-
-
-
